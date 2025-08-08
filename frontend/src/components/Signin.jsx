@@ -11,7 +11,7 @@ import { BACKEND_URL } from "../config";
 
 export function Signin(){
     const [loading, setLoading] = useState(false);
-    return <div className={`flex h-screen bg-zinc-500 justify-center items-center ${loading ? 'loader-overlay' : ''}`}>
+    return <div className={`flex min-h-screen bg-zinc-500 justify-center items-center p-4 ${loading ? 'loader-overlay' : ''}`}>
         {loading && (<Loader/>)}
         <MainSigninWindow setLoading = {setLoading}/>
     </div>
@@ -43,7 +43,7 @@ function MainSigninWindow({setLoading}){
                 setLoading(false);
             }
     }
-    return <div className="flex flex-col bg-white w-1/4 rounded-md pb-6 h-fit">
+    return <div className="flex flex-col bg-white w-full max-w-md rounded-md pb-6 h-fit mx-4">
         <Header/>
         <Inputs type = "text" title = "Email" placeholder = "johndoe@example.com" onChange={(e) => setUserState('email', e.target.value)}/>
         <Inputs type = "password" title= "Password" placeholder = "" onChange={(e) => setUserState('password', e.target.value)}/>
@@ -54,20 +54,20 @@ function MainSigninWindow({setLoading}){
 
 function Header(){
     return <>
-        <div className="flex flex-col w-full h-10 mt-6 text-center text-3xl font-bold">Sign In</div>
-        <div className = "flex flex-col text-center text-lg px-8 text-gray-500 mt-2 mb-2 font-normal">Enter your credentials to access your account</div>
+        <div className="flex flex-col w-full h-auto mt-6 text-center text-2xl md:text-3xl font-bold">Sign In</div>
+        <div className = "flex flex-col text-center text-base md:text-lg px-4 md:px-8 text-gray-500 mt-2 mb-2 font-normal">Enter your credentials to access your account</div>
     </>
 }
 
 function Inputs({title,placeholder, type, onChange}){
-    return <div className = "flex flex-col mt-3 px-8">
+    return <div className = "flex flex-col mt-3 px-4 md:px-8">
         <div className="flex font-bold">{title}</div>
         <input type = {type} placeholder = {placeholder} onChange = {onChange} className = "flex mt-3 h-10 w-full px-4 rounded-md border-2 border-gray-100"></input>
     </div>
 }
 
 function SigninButton({Login}){
-    return <div className = "flex flex-col h-fit px-8">
+    return <div className = "flex flex-col h-fit px-4 md:px-8">
         <button className="flex justify-center items-center px-8 mt-3 text-white bg-black h-10 rounded-md font-semibold" onClick={Login}>
             Sign in
         </button>
@@ -75,7 +75,7 @@ function SigninButton({Login}){
 }
 
 function SignupButton({navigate}){
-    return <div className = "flex px-16 space-x-2 mt-3 font-medium">
+    return <div className = "flex justify-center md:px-16 space-x-2 mt-3 font-medium">
         <div>Don't have an account?</div>
         <button className = "underline" onClick={()=>{
             navigate('/signup');

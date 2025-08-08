@@ -12,7 +12,7 @@ export function Signup() {
     const [loading, setLoading] = useState(false); // Initialize loading state
 
     return (
-        <div className={`flex h-screen bg-zinc-500 justify-center ${loading ? 'loader-overlay' : ''}`}>
+        <div className={`flex min-h-screen bg-zinc-500 justify-center items-center p-4 ${loading ? 'loader-overlay' : ''}`}>
             {loading && (
                 <Loader/>
             )}
@@ -57,7 +57,7 @@ async function CreateUser() {
 }
 
     return (
-        <div className="flex flex-col bg-white my-12 w-1/4 rounded-md">
+        <div className="flex flex-col bg-white w-full max-w-md mx-4 rounded-md">
             <Header />
             <Inputs type="text" title="First Name" placeholder="John" onChange={(e) => setUserState('firstName', e.target.value)} />
             <Inputs type="text" title="Last Name" placeholder="Doe" onChange={(e) => setUserState('lastName', e.target.value)} />
@@ -72,15 +72,15 @@ async function CreateUser() {
 function Header() {
     return (
         <>
-            <div className="flex flex-col w-full h-10 mt-6 text-center text-3xl font-bold">Sign Up</div>
-            <div className="flex flex-col text-center text-lg px-8 text-gray-500 mt-2 mb-2 font-normal">Enter your information to create an account</div>
+            <div className="flex flex-col w-full h-auto mt-6 text-center text-2xl md:text-3xl font-bold">Sign Up</div>
+            <div className="flex flex-col text-center text-base md:text-lg px-4 md:px-8 text-gray-500 mt-2 mb-2 font-normal">Enter your information to create an account</div>
         </>
     );
 }
 
 function LoginButton({navigate}) {
     return (
-        <div className="flex px-16 space-x-2 mt-3 font-medium">
+        <div className="flex justify-center md:px-16 space-x-2 mt-3 mb-6 font-medium">
             <div>Already have an account?</div>
             <button className="underline" onClick={()=>{
                 navigate('/signin');
@@ -91,7 +91,7 @@ function LoginButton({navigate}) {
 
 function Inputs({ title, placeholder, type , onChange}) {
     return (
-        <div className="flex flex-col mt-3 px-8">
+        <div className="flex flex-col mt-3 px-4 md:px-8">
             <div className="flex font-bold">{title}</div>
             <input type={type} placeholder={placeholder} onChange = {onChange} className="flex mt-3 h-10 w-full px-4 rounded-md border-2 border-gray-100"></input>
         </div>
@@ -100,7 +100,7 @@ function Inputs({ title, placeholder, type , onChange}) {
 
 function SignupButton({ CreateUser }) {
     return (
-        <div className="flex flex-col h-fit px-8">
+        <div className="flex flex-col h-fit px-4 md:px-8">
             <button className="flex justify-center items-center px-8 mt-3 text-white bg-black h-10 rounded-md font-semibold" onClick={CreateUser}>
                 Sign up
             </button>
