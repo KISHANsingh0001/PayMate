@@ -3,6 +3,7 @@ import { Signup } from './components/Signup';
 import { Signin } from './components/Signin';
 import { Dashboard } from './components/Dashboard';
 import { SendMoney } from './components/SendMoney';
+import { LandingPage } from './components/LandingPage';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <>
        <BrowserRouter>
         <Routes>
+          <Route path='/' element={<LandingPage/>}/>
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/dashboard" element={<Dashboard />} />

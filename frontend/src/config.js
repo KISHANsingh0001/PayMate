@@ -1,0 +1,1 @@
+export  const BACKEND_URL = "paymate-production.up.railway.app"

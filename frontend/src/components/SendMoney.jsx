@@ -4,6 +4,7 @@ import { useRecoilValue } from "recoil";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import { BACKEND_URL } from "../config";
 
 export function SendMoney(){
     return <div className="flex flex-col h-screen bg-zinc-200 items-center justify-center">
@@ -49,7 +50,7 @@ function TransferButton({amount}){
         const FundTransfer = async()=>{
                 try  {
                     await axios.post(
-                        'http://localhost:3000/api/v1/account/transfer',
+                        `${BACKEND_URL}/api/v1/account/transfer`,
                         // Separate headers and data as two separate arguments
                         { amount: amount, to: toAccountId },
                         {

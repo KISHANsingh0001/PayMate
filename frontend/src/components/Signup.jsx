@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Loader } from './Loader';
 import { tokenState } from "../atoms";
+import { BACKEND_URL } from '../config';
 
 export function Signup() {
     const [loading, setLoading] = useState(false); // Initialize loading state
@@ -29,7 +30,7 @@ function MainSignupWindow({setLoading }) {
 async function CreateUser() {
     setLoading(true);
     try {
-        const response = await axios.post('http://localhost:3000/api/v1/user/signup', {
+        const response = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, {
             username: user.email,
             password: user.password,
             firstName: user.firstName,

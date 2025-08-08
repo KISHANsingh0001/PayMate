@@ -7,6 +7,7 @@ import { useSetUserState,userState } from "../atoms";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { tokenState } from "../atoms";
+import { BACKEND_URL } from "../config";
 
 export function Signin(){
     const [loading, setLoading] = useState(false);
@@ -24,7 +25,7 @@ function MainSigninWindow({setLoading}){
     async function Login(){
         setLoading(true); // Set loading to true when request starts
             try {
-                const response = await axios.post('http://localhost:3000/api/v1/user/signin', {username : user.email,password : user.password});
+                const response = await axios.post(`${BACKEND_URL}/api/v1/user/signin`, {username : user.email,password : user.password});
                 if (response.status === 200){
                     setUserState('firstName',response.data.user.firstName);
                     setUserState('lastName',response.data.user.lastName);
