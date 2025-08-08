@@ -25,6 +25,7 @@ export function Dashboard() {
           ...prevBalanceState,
           balance: balance
         }));
+        console.log(`balance:${balance}`)
       } catch (error) {
         console.error("Error fetching balance:", error);
       }
