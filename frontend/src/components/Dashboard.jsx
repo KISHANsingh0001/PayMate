@@ -78,7 +78,7 @@ export function Dashboard() {
           <div className="bg-gray-800 rounded-xl shadow-md p-6 border border-gray-700 transform transition hover:shadow-lg md:col-span-1">
             <h2 className="text-sm font-medium text-gray-400 uppercase">Available Balance</h2>
             <div className="mt-2 flex items-baseline">
-              <span className="text-4xl font-extrabold text-white truncate">₹{balanceValue?.balance || 0}</span>
+              <span className="text-4xl font-extrabold text-white truncate">₹{Math.round(balanceValue?.balance || 0)}</span>
             </div>
           </div>
 
