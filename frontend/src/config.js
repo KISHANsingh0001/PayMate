@@ -1,1 +1,1 @@
-export  const BACKEND_URL = "paymate-production.up.railway.app"
+export  const BACKEND_URL = "https://paymate-production.up.railway.app";
